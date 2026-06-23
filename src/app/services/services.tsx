@@ -1,5 +1,6 @@
  "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Services() {
@@ -83,11 +84,13 @@ export default function Services() {
                 onClick={() => setActiveCardId((prevId) => (prevId === id ? null : id))}
                 className="group relative h-[420px] cursor-pointer overflow-hidden rounded-[18px] border border-[#ececec] bg-white shadow-[0_6px_20px_rgba(0,0,0,0.08)] md:h-[440px]"
               >
-              <div className="h-full w-full overflow-hidden">
-                <img
+              <div className="relative h-full w-full overflow-hidden">
+                <Image
                   src={image}
                   alt={title}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
 

@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import { Cormorant_Garamond, Poppins } from 'next/font/google';
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -61,9 +62,11 @@ export default function Speed() {
                   <div
                     className="absolute inset-0 scale-0 bg-[#2997FF] transition-transform duration-300 ease-out group-hover:scale-100"
                   />
-                  <img
+                  <Image
                     src={item.icon}
                     alt={item.label}
+                    width={56}
+                    height={56}
                     className="relative z-10 h-14 w-14 object-contain transition duration-200 group-hover:brightness-0 group-hover:invert"
                   />
                   <p

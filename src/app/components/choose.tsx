@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Cormorant_Garamond, Poppins } from 'next/font/google';
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -69,11 +70,15 @@ export default function Choose() {
 
         <div className="relative mx-auto w-full max-w-[560px] lg:mx-0">
           <div className="absolute left-[4%] top-[-26px] h-[88%] w-[66%] rounded-tl-[14px] bg-black" />
-          <img
-            src="/home-choose.jpg"
-            alt="Construction estimating professionals reviewing project plans"
-            className="relative z-10 ml-auto h-[340px] w-[92%] rounded-[14px] object-cover shadow-lg"
-          />
+          <div className="relative z-10 ml-auto h-[340px] w-[92%] overflow-hidden rounded-[14px] shadow-lg">
+            <Image
+              src="/home-choose.jpg"
+              alt="Construction estimating professionals reviewing project plans"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 340px"
+            />
+          </div>
         </div>
       </div>
     </section>

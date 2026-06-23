@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { Cormorant_Garamond, Poppins } from 'next/font/google';
 import { FaCheck } from 'react-icons/fa6';
 

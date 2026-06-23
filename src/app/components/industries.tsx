@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   FaHelmetSafety,
   FaUserTie,
@@ -61,11 +62,15 @@ export default function Industries() {
 
         <div className="relative mx-auto w-full max-w-[560px] lg:mx-0">
           <div className="absolute left-[4%] top-[-26px] h-[88%] w-[66%] rounded-tl-[14px] bg-black" />
-          <img
-            src="/home-industries1.jpg"
-            alt="Construction professionals discussing work at a job site"
-            className="relative z-10 ml-auto h-[340px] w-[92%] rounded-[14px] object-cover shadow-lg"
-          />
+          <div className="relative z-10 ml-auto h-[340px] w-[92%] overflow-hidden rounded-[14px] shadow-lg">
+            <Image
+              src="/home-industries1.jpg"
+              alt="Construction professionals discussing work at a job site"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 340px"
+            />
+          </div>
         </div>
       </div>
     </section>
