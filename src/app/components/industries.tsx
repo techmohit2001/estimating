@@ -64,7 +64,7 @@ export default function Industries() {
           <div className="absolute left-[4%] top-[-26px] h-[88%] w-[66%] rounded-tl-[14px] bg-black" />
           <div className="relative z-10 ml-auto h-[340px] w-[92%] overflow-hidden rounded-[14px] shadow-lg">
             <Image
-              src="/home-industries1.jpg"
+              src="/services-service5.png"
               alt="Construction professionals discussing work at a job site"
               fill
               className="object-cover"
