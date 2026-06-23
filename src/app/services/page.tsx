@@ -1,8 +1,9 @@
-import Hero from "../components/hero";
+import Hero from "./hero";
 import Fast from "./fast";
 import Speed from "./speed";
-import Services from "../components/services";
-import Faq from "../components/faq";
+import Services from "./services";
+import Expertise from "./expertise";
+import Faq from "./faq";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Fast />
       <Speed />
       <Services />
+      <Expertise />
       <Faq />
     </>
   );

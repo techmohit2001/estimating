@@ -24,7 +24,7 @@ export default function EstimatingBestPractices() {
           </h1>
           <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-6">
             <Image
-              src="/a2.jpg"
+              src="/home-blog1.jpg"
               alt="Estimating Best Practices"
               fill
               className="object-cover"

@@ -24,7 +24,7 @@ export default function ConstructionEstimating() {
           </h1>
           <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-6">
             <Image
-              src="/a2.jpg"
+              src="/home-industries1.jpg"
               alt="Construction Estimating"
               fill
               className="object-cover"

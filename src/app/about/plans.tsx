@@ -1,92 +1,114 @@
-'use client';
-import Image from 'next/image';
+import { Cormorant_Garamond, Poppins } from 'next/font/google';
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['700'],
+  style: ['italic'],
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+});
+
+const STATS = [
+  { value: '10+', label: 'Years Experience' },
+  { value: '2020', label: 'Founded' },
+  { value: 'USA + CA', label: 'Coverage Area' },
+  { value: 'Fast', label: 'Turnaround' },
+] as const;
 
 export default function Plans() {
   return (
-    <div className="w-full h-[300px] md:h-[400px] lg:h-[550px] relative bg-black">
-      {/* Background Image */}
-      <Image
-        src="/images/laptop.jpg"
-        alt="Laptop"
-        fill
-        className="w-full h-full object-contain"
-        priority
-      />
-      
-      {/* Content Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full max-w-6xl px-4 md:px-6 lg:px-8">
-          {/* Left Side Content */}
-          <div className="flex flex-col gap-8 md:gap-6 lg:gap-8 mt-32 md:mt-16 lg:ml-9 items-start lg:items-start" style={{ marginTop: '270px' }}>
-            {/* Text Block */}
-            <div 
-              className="text-white text-left w-[80px] md:w-[150px] lg:w-[180px] h-[50px] md:h-[70px] lg:h-[80px] text-[10px] md:text-sm lg:text-lg leading-tight md:leading-none lg:leading-none opacity-100"
-              style={{
-                fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont',
-                fontWeight: '350',
-                fontStyle: 'normal',
-                letterSpacing: '0%'
-              }}
-            >
-              We simplify estimating with accurate reports, helping projects succeed every time.
-            </div>
-            
-            {/* Button Group */}
-            <div 
-              className="flex flex-col gap-3 lg:gap-6 w-[60px] md:w-[130px] lg:w-[160px] h-[70px] md:h-[95px] lg:h-[110px] opacity-100"
-              style={{
-                gap: '28px'
-              }}
-            >
-              {/* Estimating Button */}
-              <button
-                className="text-white border border-white rounded-full flex items-center justify-center transition-opacity hover:opacity-100 w-full lg:w-auto w-[50px] md:w-[120px] lg:w-[160px] h-[24px] md:h-[34px] lg:h-[40px] opacity-90 rounded-[10px] md:rounded-[20px] lg:rounded-[25px] border-[0.75px] px-[6px] md:px-[20px] lg:px-[30px] py-[1px] md:py-[4px] lg:py-[6px] text-[8px] md:text-sm lg:text-lg leading-[12px] md:leading-[20px] lg:leading-[26px] text-center"
-                style={{
-                  gap: '15px',
-                  fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont',
-                  fontWeight: '556',
-                  fontStyle: 'normal',
-                  letterSpacing: '4%'
-                }}
-              >
-                Estimating
-              </button>
-              
-              {/* Buddies Button */}
-              <button
-                className="text-white border border-white rounded-full flex items-center justify-center transition-opacity hover:opacity-100 w-full lg:w-auto w-[50px] md:w-[120px] lg:w-[160px] h-[24px] md:h-[34px] lg:h-[40px] opacity-90 rounded-[10px] md:rounded-[20px] lg:rounded-[25px] border-[0.75px] px-[6px] md:px-[20px] lg:px-[30px] py-[1px] md:py-[4px] lg:py-[6px] text-[8px] md:text-sm lg:text-lg leading-[12px] md:leading-[20px] lg:leading-[26px] text-center"
-                style={{
-                  gap: '15px',
-                  fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont',
-                  fontWeight: '556',
-                  fontStyle: 'normal',
-                  letterSpacing: '4%'
-                }}
-              >
-                Buddies
-              </button>
-            </div>
+    <section className="w-full bg-white px-4 pb-12 pt-6 sm:px-6 sm:pb-14 lg:px-10 lg:pb-16 lg:pt-10">
+      <div className="mx-auto w-full max-w-[1280px]">
+        <div className="pb-8 sm:pb-10">
+          <h2
+            className={`${cormorantGaramond.className} mb-4 text-[#1a1a1a]`}
+            style={{
+              fontWeight: 700,
+              fontStyle: 'italic',
+              fontSize: '45px',
+              textAlign: 'center',
+              lineHeight: 1.1,
+            }}
+          >
+            About Our Company
+          </h2>
+
+          <div className="mx-auto mb-10 h-[3px] w-12 rounded-full bg-[#2997FF]" />
+
+          <div
+            className={`${poppins.className} space-y-6 text-[#555555]`}
+            style={{
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '16px',
+              lineHeight: '1.75',
+              fontWeight: 400,
+            }}
+          >
+            <p>
+              At{' '}
+              <strong className="font-semibold text-[#333333]">Estimating Buddies</strong>, we
+              specialize in delivering accurate, transparent, and cost-effective construction
+              estimating and material takeoff services for contractors, developers, architects, and
+              homeowners across the{' '}
+              <strong className="font-semibold text-[#333333]">USA and Canada</strong>.{' '}
+              <strong className="font-semibold text-[#333333]">Founded in 2020</strong>, our team
+              brings{' '}
+              <strong className="font-semibold text-[#333333]">
+                10+ years of combined industry experience
+              </strong>{' '}
+              to every project. Our core services include{' '}
+              <strong className="font-semibold text-[#333333]">
+                Plumbing Estimating, Construction Estimating, Mechanical Estimating, Architectural
+                Cost Estimating, Quantity Takeoff, and Electrical Estimating
+              </strong>
+              , giving clients the flexibility to get support for individual trades or complete
+              project scopes.
+            </p>
+            <p>
+              We deliver comprehensive estimating solutions for{' '}
+              <strong className="font-semibold text-[#333333]">
+                residential and commercial projects
+              </strong>
+              , helping clients save time, reduce risk, and bid with confidence. At Estimating
+              Buddies, we focus on clear numbers, detailed scope review, and trade-specific cost
+              analysis that helps reduce guesswork before construction begins. Whether your project
+              involves new construction, renovation, tenant improvement, or infrastructure work,
+              our team prepares detailed takeoffs and cost breakdowns using industry-standard
+              tools—so you can plan smarter, bid competitively, and move forward with greater
+              confidence.
+            </p>
           </div>
-          
-          {/* Right Side - Laptop will be visible through the background image */}
-          <div className="flex-1 relative flex items-start justify-center lg:items-center lg:justify-start lg:mr-8 -mt-40 lg:mt-0">
-            {/* Laptop Screen Text Overlay */}
-            <div 
-              className="text-blue-500 uppercase rounded-lg text-center w-[340px] md:w-[350px] lg:w-[450px] h-[320px] md:h-[150px] lg:h-[188px] text-[clamp(16px,5vw,56px)] md:text-[clamp(16px,5vw,56px)] lg:text-[clamp(20px,6vw,56px)] leading-[20px] md:leading-[35px] lg:leading-[47px] opacity-100 z-10 ml-1 md:ml-[50px] lg:ml-[100px] block mt-0 lg:mt-0"
-              style={{
-                fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont',
-                fontWeight: '656',
-                fontStyle: 'normal'
-              }}
-            >
-              TURNING<br/>
-              COMPLEX PLANS<br/>
-              INTO CLEAR<br/>
-              NUMBERS
-            </div>
+        </div>
+
+        <div className="bg-black py-5 sm:py-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 px-3 sm:gap-3 sm:px-4">
+            {STATS.map((stat) => (
+              <div
+                key={stat.label}
+                className="flex w-full max-w-[130px] flex-col items-center justify-center rounded-lg px-2 py-3 text-center sm:max-w-[150px] sm:px-3 sm:py-3.5"
+                style={{
+                  background: 'linear-gradient(180deg, #0f1a2e 0%, #0a1220 100%)',
+                  borderBottom: '2px solid #2997FF',
+                }}
+              >
+                <span
+                  className={`${poppins.className} mb-0.5 text-[16px] font-bold leading-none text-white sm:text-[18px]`}
+                >
+                  {stat.value}
+                </span>
+                <span
+                  className={`${poppins.className} text-[10px] font-normal text-white/70 sm:text-[11px]`}
+                >
+                  {stat.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

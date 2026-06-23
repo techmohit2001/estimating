@@ -6,107 +6,64 @@ export default function Software() {
   const softwareTools = [
     {
       id: 1,
-      name: "Plan swift",
-      logoUrl: "/images/planswift.png"
+      name: 'PlanSwift',
+      logoUrl: '/home-software1.png',
     },
     {
       id: 2,
-      name: "Bluebeam",
-      logoUrl: "/images/bluebeam.png"
+      name: 'Bluebeam',
+      logoUrl: '/home-software2.png',
     },
     {
       id: 3,
-      name: "Xactimate",
-      logoUrl: "/images/xactimate.png"
+      name: 'Xactimate',
+      logoUrl: '/home-software3.png',
     },
     {
       id: 4,
-      name: "Trimble",
-      logoUrl: "/images/trimble.png"
+      name: 'Trimble',
+      logoUrl: '/home-software4.png',
     },
     {
       id: 5,
-      name: "Accubid",
-      logoUrl: "/images/accubid.png"
+      name: 'On-Screen Takeoff',
+      logoUrl: '/home-software5.png',
     },
     {
       id: 6,
-      name: "On-Screen Take-offs",
-      logoUrl: "/images/takeoff.png"
+      name: 'RSMeans',
+      logoUrl: '/home-software6.png',
     },
-    {
-      id: 7,
-      name: "RS Means",
-      logoUrl: "/images/rsmeans.png"
-    }
   ];
 
   return (
-    <div className="relative w-full bg-black px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 overflow-hidden min-h-[80px]">
-      
-      {/* Background Blur Circle */}
-      <div 
-        className="absolute hidden lg:block"
-        style={{
-          width: '778px',
-          height: '778px',
-          top: '200px',
-          right: '100px',
-          opacity: '0.19',
-          background: '#23AAE2',
-          borderRadius: '50%',
-          backdropFilter: 'blur(459px)',
-          mixBlendMode: 'exclusion',
-          filter: 'blur(200px)'
-        }}
-      />
+    <section className="w-full bg-white px-4 pt-4 pb-10 sm:px-6 sm:pt-5 sm:pb-10 lg:px-10 lg:pt-6 lg:pb-12">
+      <div className="mx-auto max-w-[1240px]">
+        <h2
+          className="text-[36px] leading-none text-[#0f0f0f] sm:text-[45px]"
+          style={{ fontFamily: 'Cormorant Garamond, serif', fontStyle: 'italic', fontWeight: 600 }}
+        >
+          Software We Use
+        </h2>
+        <div className="mt-[10px] h-[3px] w-[68px] rounded bg-gradient-to-r from-[#2997FF] to-[#0068CB]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-        
-        {/* Header Section */}
-        <div className="mb-8 sm:mb-12 lg:mb-20 text-center">
-          <h1 
-            className="text-white mx-auto font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[50px] leading-tight sm:leading-tight md:leading-tight lg:leading-[64px] lg:tracking-[-1.2px] text-center flex items-center justify-center max-w-full px-4 sm:px-6 lg:px-0 lg:w-[1002px] lg:h-[128px]"
-            style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-          >
-            What software do we use for home building cost estimating services?
-          </h1>
+        <div className="mt-6 grid grid-cols-2 justify-items-center gap-3 sm:grid-cols-3 lg:grid-cols-6">
+          {softwareTools.map((tool) => (
+            <div
+              key={tool.id}
+              className="flex h-[84px] w-full max-w-[168px] items-center justify-center rounded-[8px] border border-[#c8c8c8] bg-white px-3 shadow-[0_2px_8px_rgba(0,0,0,0.22)] transition-transform duration-200 hover:-translate-y-[1px]"
+            >
+              <Image
+                src={tool.logoUrl}
+                alt={tool.name}
+                width={150}
+                height={48}
+                className="max-h-[38px] w-auto object-contain"
+              />
+            </div>
+          ))}
         </div>
-
-        {/* Software Tools Grid */}
-        <div className="flex justify-center">
-          <div className="flex flex-wrap justify-center items-start gap-4 sm:gap-6 lg:gap-12 xl:gap-[50px] opacity-50 max-w-full px-2 sm:px-4">
-            {softwareTools.map((tool) => (
-              <div
-                key={tool.id}
-                className="flex flex-col items-center group cursor-pointer transition-all duration-300 hover:opacity-100 w-20 sm:w-24 md:w-28 lg:w-[129px] gap-2 sm:gap-3"
-              >
-                {/* Logo Container */}
-                <div className="flex items-center justify-center transition-all duration-300 p-2 sm:p-3 lg:p-4 w-full h-16 sm:h-20 lg:h-[92px] relative">
-                  <Image
-                    src={tool.logoUrl}
-                    alt={tool.name}
-                    width={80}
-                    height={60}
-                    className="max-w-[60px] max-h-[45px] sm:max-w-[70px] sm:max-h-[50px] lg:max-w-[80px] lg:max-h-[60px] object-contain transition-all duration-300 group-hover:brightness-0 group-hover:invert filter-none"
-                  />
-                </div>
-                
-                {/* Tool Name */}
-                <div className="w-full h-4 sm:h-5 lg:h-[21px]">
-                  <p 
-                    className="text-white/70 group-hover:text-white transition-all duration-300 font-light text-xs sm:text-sm lg:text-base leading-[133%] tracking-normal text-center m-0"
-                    style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-                  >
-                    {tool.name}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
       </div>
-    </div>
+    </section>
   );
 }

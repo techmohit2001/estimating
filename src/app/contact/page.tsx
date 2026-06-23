@@ -1,13 +1,11 @@
 import Form from "./form";
-
-import Faq from "../components/faq";
-
+import Location from "./location";
 export default function Home() {
   return (
     <>
       
       <Form />
-      <Faq />
+      <Location />
     </>
   );
 }

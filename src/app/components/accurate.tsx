@@ -1,113 +1,202 @@
 'use client';
+
 import { useState } from 'react';
+import { Cormorant_Garamond, Poppins } from 'next/font/google';
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['700'],
+  style: ['italic']
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400']
+});
+
+const TAB_CONTENT = [
+  {
+    key: 'accurate',
+    tabLabel: 'Accurate Bid',
+    heading: 'Accurate Bid Preparation',
+    description:
+      'Our estimating specialists prepare detailed and dependable cost estimates by carefully reviewing project drawings, specifications, labor requirements, and material quantities. Whether you need Construction Estimating, Quantity Takeoff, or trade-specific pricing support, our process helps reduce missed scope items and improves bidding confidence.',
+    points: [
+      { icon: '✎', text: 'Review Drawings & Specifications' },
+      { icon: '⌗', text: 'Detailed Cost Breakdowns' },
+      { icon: '⌕', text: 'Reduce Scope Gaps' },
+      { icon: '↗', text: 'Improve Bid Confidence' }
+    ]
+  },
+  {
+    key: 'industry',
+    tabLabel: 'Industry Expertise',
+    heading: 'Trade-Specific Estimating Expertise',
+    description:
+      'We provide specialized estimating support across multiple trades and construction disciplines. Our team handles Plumbing Estimating, Mechanical Estimating, Electrical Estimating, and Architectural Cost Estimating with a practical understanding of project scope, materials, and execution requirements. This industry-focused approach helps clients receive estimates that are not just fast, but usable in real bidding and planning situations.',
+    points: [
+      { icon: '◉', text: 'Plumbing Estimating Support' },
+      { icon: '⚙', text: 'Mechanical & Electrical Estimates' },
+      { icon: '△', text: 'Architectural Cost Analysis' },
+      { icon: '▣', text: 'Multi-Sector Project Experience' }
+    ]
+  },
+  {
+    key: 'planning',
+    tabLabel: 'Reliable Planning',
+    heading: 'Reliable Planning & Cost Control',
+    description:
+      'Strong projects start with strong numbers. Our Quantity Takeoff and estimating services help clients plan budgets, compare costs, allocate resources, and prepare for execution with greater clarity. By combining Construction Estimating with well-structured quantity reviews, we support better decision-making before the project moves to the field.',
+    points: [
+      { icon: '▤', text: 'Budget Planning Support' },
+      { icon: '◫', text: ' Quantity-Based Cost Control' },
+      { icon: '✦', text: 'Better Preconstruction Decisions' },
+      { icon: '◷', text: 'Clearer Resource Forecasting' }
+    ]
+  }
+] as const;
 
 export default function Accurate() {
-  const [showDetails, setShowDetails] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
+  const activeContent = TAB_CONTENT[activeTab];
 
   return (
-    <div className="relative w-full h-screen bg-black overflow-hidden flex flex-col items-center justify-center">
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
-      
-      {/* Main Content Container */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-3 sm:px-6 lg:px-8">
-        {/* Main Heading */}
-        <div 
-          className="text-white mb-3 sm:mb-6 text-center flex items-center justify-center w-[90%] max-w-[683px] h-auto min-h-[120px] sm:min-h-[120px] font-[790] text-[clamp(1.8rem,7vw,76.25px)] leading-[1.5] sm:leading-[1.0] tracking-[-0.3px] sm:tracking-[-1.2px]"
-          style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-        >
-          Accurate. Fast.<br />
-          Detailed.<br />
-          Professional
+    <section className="relative w-full overflow-hidden bg-white pt-8 pb-14 lg:pt-10 lg:pb-16">
+      <div className="pointer-events-none absolute right-0 top-[84px] hidden h-[350px] w-[48px] rounded-l-2xl bg-gradient-to-b from-[#2997FF] to-[#2997FF] lg:block" />
+      <div className="pointer-events-none absolute bottom-[28px] left-0 hidden h-[412px] w-[56px] rounded-r-2xl bg-gradient-to-r from-[#2997FF] to-[#2997FF] lg:block" />
+      <div className="pointer-events-none absolute bottom-0 left-0 hidden h-[58px] w-[386px] rounded-tr-2xl bg-gradient-to-r from-[#2997FF] to-[#2997FF] lg:block" />
+
+      <div className="relative z-10 mx-auto grid w-full max-w-[1400px] grid-cols-1 gap-8 px-6 sm:px-10 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:px-16">
+        <div className="max-w-[650px] text-[#1f1f1f]">
+          <h2
+            className={`${cormorantGaramond.className}`}
+            style={{
+              fontWeight: 700,
+              fontStyle: 'italic',
+              fontSize: 'clamp(28px,5vw,45px)',
+              lineHeight: '70px',
+              letterSpacing: '0.02em',
+              textTransform: 'capitalize'
+            }}
+          >
+            Our Estimating Expertise
+          </h2>
+          <div className="mb-6  h-[3px] w-[68px] rounded bg-gradient-to-r from-[#2997FF] to-[#0068CB]" />
+
+          <div
+            className={`${poppins.className} space-y-5 text-[#303030]`}
+            style={{
+              fontWeight: 400,
+              fontStyle: 'normal',
+              fontSize: '16px',
+              lineHeight: '1.35',
+              letterSpacing: '0'
+            }}
+          >
+            <p>
+              <span className="font-semibold">Founded in 2025</span>, we are a dedicated
+              <span className="font-semibold"> construction estimating company </span>
+              serving construction professionals across the USA and selected projects in Canada
+              with accurate, reliable, and timely estimating support.
+              We work with <span className="font-semibold">general contractors</span>,
+              <span className="font-semibold"> architects</span>,
+              <span className="font-semibold"> wall contractors</span>,
+              <span className="font-semibold"> plumbing contractors</span>,
+              <span className="font-semibold"> MEP contractors</span>, and other industry
+              professionals who need dependable numbers for better bidding and planning.  Using industry-standard software such as 
+              <span className="font-semibold"> Plan Swift, Bluebeam, Xactimate, Trimble, Acavid, On-Screen Takeoff, and RS Means</span>, we deliver 
+              efficient and dependable estimating solutions.
+            </p>
+            <p>
+            We provide Plumbing Estimating, Construction Estimating, Mechanical Estimating, Architectural Cost Estimating, Quantity Takeoff, 
+            and Electrical Estimating for <span className="font-semibold">commercial, Industrial, civil, and residential projects.</span>  Our focus is to deliver precise estimates 
+            and takeoffs that save time, reduce uncertainty, and support smarter project decisions.
+            </p>
+          </div>
         </div>
 
-        {/* Subtitle */}
-        <div 
-          className="text-white mb-4 sm:mb-8 text-center w-[90%] max-w-[775px] h-auto font-[656] text-[clamp(0.8rem,3vw,20px)] leading-[1.6] sm:leading-[1.1] tracking-[0%] uppercase"
-          style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-        >
-          Accurate, Fast, And Detailed Professional Construction Estimating Services
-        </div>
-
-        {/* Know More Button */}
-        <button
-          onClick={() => setShowDetails(!showDetails)}
-          className="transition-all duration-300 hover:opacity-80 whitespace-nowrap w-[clamp(100px,22vw,133px)] h-[clamp(36px,7vw,41px)] rounded-lg border-none py-2.5 px-5 sm:py-2.5 sm:px-6 text-white font-medium text-[clamp(0.8rem,2.5vw,14px)]"
-          style={{
-            background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0) 100%)',
-            fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont'
-          }}
-        >
-          Know More
-        </button>
-      </div>
-
-      {/* Popup Modal - Shows when Know More is clicked */}
-      {showDetails && (
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-20 flex items-center justify-center p-1 sm:p-4">
-          <div className="bg-black rounded-lg w-full max-h-[85vh] sm:max-h-[80vh] overflow-y-auto border-2 border-white max-w-[90vw] sm:max-w-[1000px]">
-            <div className="p-2 sm:p-6 md:p-8">
-              <div className="flex justify-between items-center mb-2 sm:mb-6">
-                <h2 
-                  className="font-bold text-white text-[clamp(0.9rem,3.5vw,2rem)]"
-                  style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-                >
-                  About Our Services
-                </h2>
-                <button
-                  onClick={() => setShowDetails(false)}
-                  className="text-white hover:text-gray-300 font-bold text-[clamp(1.1rem,3.5vw,1.5rem)] min-w-[28px] min-h-[28px]"
-                  style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-                >
-                  ×
-                </button>
-              </div>
-              
-              <div 
-                className="text-white leading-[1.8] sm:leading-relaxed space-y-2 sm:space-y-4 text-[clamp(0.8rem,2.5vw,1rem)]"
-                style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-              >
-                <p>
-                  At Estimating Buddies, we ensure that each winning project begins with the correct numbers. Our professional staff of construction estimators offers more than numbers—we offer clarity, confidence, and the competitive advantage you need to secure bids and manage costs.
-                </p>
-                
-                <p>
-                  If you&apos;re a general contractor, subcontractor, architect, or developer, our customized construction estimating service is developed to save time, limit risk, and keep your projects within budget. Our methodology combines industry expertise with tools such as PlanSwift, Bluebeam, and RSMeans to provide cost information with accuracy you can count on.
-                </p>
-                
-                <p>
-                  Whether working on residential, large commercial, or industrial constructions, we provide precise quantity takeoffs, material takeoffs, and budget estimates to assist you in planning smarter and building with confidence.
-                </p>
-                
-                <p>
-                  Selecting Estimating Buddies as a partner helps you to be aware of your challenges—tight timelines, competitive markets, and design changes, with rapid turnaround time, open communication, and accurate estimates. Let us drive your blueprints into actionable insights.
-                </p>
-                
-                <p>
-                  Upload your plans today and learn how our construction estimating can change the way you bid, budget, and succeed. With years of hands-on experience, our team makes sure every estimate is clear and reliable.
-                </p>
-                
-                <p>
-                  From domestic dwellings to intricate commercial and industrial construction, we provide estimates that are not only accurate but also feasible for practical implementation. Each aspect is drawn up with attention to detail, adhering to the known guidelines and following best practices of the Estimators Organization and the AACE (Association for the Advancement of Cost Engineering).
-                </p>
-                
-                <p>
-                  This commitment ensures that all estimates provide the highest standard of industry accuracy and reliability.
-                </p>
-              </div>
-              
-              {/* Close button */}
+        <div className="rounded-2xl bg-[#e1e1e1] p-3 shadow-[0_4px_16px_rgba(0,0,0,0.14)]">
+          <div className={`${poppins.className} mb-3 grid grid-cols-3 gap-2 text-[16px]`}>
+            {TAB_CONTENT.map((tab, index) => (
               <button
-                onClick={() => setShowDetails(false)}
-                className="mt-3 sm:mt-6 px-4 sm:px-6 py-2 sm:py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300 whitespace-nowrap text-[clamp(0.8rem,2.5vw,1rem)] min-w-[80px] min-h-[36px]"
-                style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
+                key={tab.key}
+                type="button"
+                onClick={() => setActiveTab(index)}
+                className={`rounded-t-xl rounded-b-none px-3 py-4 font-medium transition-colors duration-200 ${
+                  activeTab === index
+                    ? 'bg-gradient-to-r from-[#2997FF] to-[#0068CB] text-white'
+                    : 'bg-[#d5d5d5] text-[#2b2b2b]'
+                }`}
               >
-                Close
+                {tab.tabLabel}
               </button>
+            ))}
+          </div>
+
+          <div className="rounded-2xl border border-[#d9d9d9] bg-[#f8f8f8] p-6 shadow-[0_2px_10px_rgba(0,0,0,0.08)]">
+            <h3
+              className={`${cormorantGaramond.className} mb-4 text-[#111]`}
+              style={{
+                fontWeight: 700,
+                fontStyle: 'italic',
+                fontSize: '40px',
+                lineHeight: '1.1',
+                letterSpacing: '0.01em'
+              }}
+            >
+              {activeContent.heading}
+            </h3>
+            <p className={`${poppins.className} mb-6 text-[16px] leading-relaxed text-[#222]`}>
+              {activeContent.key === 'accurate' ? (
+                <>
+                  Our estimating specialists prepare detailed and dependable cost estimates by
+                  carefully reviewing project drawings, specifications, labor requirements, and
+                  material quantities. Whether you need
+                  <span className="font-semibold"> Construction Estimating</span>,
+                  <span className="font-semibold"> Quantity Takeoff</span>, or trade-specific
+                  pricing support, our process helps reduce missed scope items and improves
+                  bidding confidence.
+                </>
+              ) : activeContent.key === 'industry' ? (
+                <>
+                  We provide specialized estimating support across multiple trades and
+                  construction disciplines. Our team handles
+                  <span className="font-semibold"> Plumbing Estimating</span>,
+                  <span className="font-semibold"> Mechanical Estimating</span>,
+                  <span className="font-semibold"> Electrical Estimating</span>, and
+                  <span className="font-semibold"> Architectural Cost Estimating</span> with a
+                  practical understanding of project scope, materials, and execution requirements.
+                  This industry-focused approach helps clients receive estimates that are not just
+                  fast, but usable in real bidding and planning situations.
+                </>
+              ) : activeContent.key === 'planning' ? (
+                <>
+                  Strong projects start with strong numbers. Our
+                  <span className="font-semibold"> Quantity Takeoff</span> and estimating services
+                  help clients plan budgets, compare costs, allocate resources, and prepare for
+                  execution with greater clarity. By combining
+                  <span className="font-semibold"> Construction Estimating</span> with
+                  well-structured quantity reviews, we support better decision-making before the
+                  project moves to the field.
+                </>
+              ) : (
+                'No description available'
+              )}
+            </p>
+
+            <div className={`${poppins.className} grid grid-cols-2 gap-4 text-[16px] text-[#2a2a2a]`}>
+              {activeContent.points.map((point) => (
+                <div key={point.text} className="flex items-center gap-3">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-r from-[#2997FF] to-[#0068CB] text-[20px] text-white">
+                    {point.icon}
+                  </span>
+                  <span>{point.text}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </section>
   );
 }

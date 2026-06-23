@@ -56,32 +56,32 @@ const Footer = () => {
               </h2>
               
               {/* Social Media Icons */}
-              <div className="flex items-center gap-4 lg:gap-[22px]">
+              <div className="flex items-center gap-2.5 lg:gap-3.5">
                 <a href="https://www.facebook.com/people/Estimating-Buddies/61556785539225/?_rdr" target="_blank" rel="noopener noreferrer" 
-                   className="text-white hover:text-blue-500 transition-colors w-3 lg:w-[11px]">
-                  <FaFacebookF />
+                   className="w-8 h-8 rounded-md bg-[#1E73D8] hover:bg-[#155DB2] text-white transition-colors flex items-center justify-center">
+                  <FaFacebookF className="text-[13px]" />
                 </a>
                 <a href="https://x.com/estimatingbudd/status/1789996766273610112" target="_blank" rel="noopener noreferrer" 
-                   className="text-white hover:text-blue-500 transition-colors w-3 lg:w-[11px]">
-                  <FaXTwitter />
+                   className="w-8 h-8 rounded-md bg-[#1E73D8] hover:bg-[#155DB2] text-white transition-colors flex items-center justify-center">
+                  <FaXTwitter className="text-[13px]" />
                 </a>
                 <a href="https://www.instagram.com/estimatingbuddies/" target="_blank" rel="noopener noreferrer" 
-                   className="text-white hover:text-blue-500 transition-colors w-3 lg:w-[11px]">
-                  <FaInstagram />
+                   className="w-8 h-8 rounded-md bg-[#1E73D8] hover:bg-[#155DB2] text-white transition-colors flex items-center justify-center">
+                  <FaInstagram className="text-[13px]" />
                 </a>
-                <a href="https://www.linkedin.com/posts/estimating-buddies_estimatingbuddies-designandplanning-costmanagement-activity-7266790463313977345-NfwO/" target="_blank" rel="noopener noreferrer" 
-                   className="text-white hover:text-blue-500 transition-colors w-3 lg:w-[11px]">
-                  <FaLinkedinIn />
+                <a href="https://www.linkedin.com/company/estimating-buddies/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
+                   className="w-8 h-8 rounded-md bg-[#1E73D8] hover:bg-[#155DB2] text-white transition-colors flex items-center justify-center">
+                  <FaLinkedinIn className="text-[13px]" />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Center and Right Side - Side by side on mobile, separate on laptop */}
-          <div className="flex flex-row lg:contents">
+          {/* Right Sections - Pages, Service, Contact */}
+          <div className="grid grid-cols-2 gap-8 w-full lg:contents">
             {/* Center - Navigation Pages */}
             <div 
-              className="lg:order-2 w-1/2 lg:w-auto lg:flex lg:flex-col lg:items-center"
+              className="lg:order-2 w-full lg:w-auto lg:flex lg:flex-col lg:items-center"
               style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
             >
               <h4 className="text-white font-semibold mb-4 lg:mb-7 text-sm lg:text-base ml-0 lg:ml-8">Pages</h4>
@@ -101,19 +101,51 @@ const Footer = () => {
               </div>
             </div>
 
+            {/* Middle - Service */}
+            <div
+              className="lg:order-3 w-full lg:w-auto lg:flex lg:flex-col lg:items-start"
+              style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
+            >
+              <h4 className="text-white font-semibold mb-4 lg:mb-7 text-sm lg:text-base">Services</h4>
+              <div className="space-y-3 lg:space-y-4">
+                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                  Plumbing Estimating
+                </a>
+                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                  Construction Estimating
+                </a>
+                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                  Mechanical Estimating
+                </a>
+                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                  Architectural Cost Estimating
+                </a>
+                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                  Quantity Takeoff
+                </a>
+                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                  Electrical Estimating
+                </a>
+              </div>
+            </div>
+
             {/* Right Side - Contact Info */}
             <div 
-              className="lg:order-3 w-1/2 lg:w-[418px]"
+              className="col-span-2 lg:order-4 w-full lg:w-[418px]"
               style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
             >
               <h4 className="text-white font-semibold mb-4 lg:mb-6 text-sm lg:text-base ml-0 lg:ml-[100px]">Contact us</h4>
               <div className="space-y-4 lg:space-y-6 ml-0 lg:ml-[100px]">
                 {/* Email */}
-                <div className="flex items-center gap-2 lg:gap-3">
+                <div className="flex items-start gap-2 lg:gap-3">
                   <div className="w-3 h-3 lg:w-4 lg:h-4 flex items-center justify-center">
                     <span className="text-white text-xs lg:text-sm">✉</span>
                   </div>
-                  <a href="mailto:contact@estimatingbuddies.com" className="text-white text-xs lg:text-sm hover:text-blue-500 transition-colors">
+                  <a
+                    href="mailto:contact@estimatingbuddies.com"
+                    className="text-white text-xs lg:text-sm hover:text-blue-500 transition-colors break-all sm:break-normal"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
                     info@estimatingbuddies.com
                   </a>
                 </div>
@@ -148,10 +180,10 @@ const Footer = () => {
         className="max-w-7xl mx-auto mt-4 lg:mt-6"
         style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
       >
-        <div className="flex flex-col md:flex-row items-center justify-between text-xs lg:text-sm">
-          <p className="text-white">Copyright © 2025 &nbsp;| &nbsp; Estimating Buddies LLC</p>
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between text-xs lg:text-sm gap-3">
+          <p className="text-white text-center md:text-left">Copyright © 2026 &nbsp;| &nbsp; Estimating Buddies LLC</p>
           
-          <div className="flex items-center gap-3 lg:gap-6 mt-3 lg:mt-0">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 lg:gap-4 mt-1 lg:mt-0">
             <span className="text-white">All Rights Reserved |</span>
             <Link href="/termsandcondition">
               <span className="text-white hover:text-blue-500 transition-colors underline">

@@ -1,126 +1,53 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
 
-export default function HeroSection() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const textRef = useRef<HTMLDivElement>(null);
+import Link from 'next/link';
 
-  // Background images array with their specific transition effects
-  const backgroundImages = [
-    { src: '/b.jpg', effect: 'fade-scale' },
-    { src: '/home.jpg', effect: 'slide-left' },
-    { src: '/y.jpg', effect: 'slide-right' },
-    { src: '/u.jpg', effect: 'zoom-rotate' },
-    { src: '/c.png', effect: 'flip-horizontal' },
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex(
-        (prevIndex) => (prevIndex + 1) % backgroundImages.length
-      );
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [backgroundImages.length]);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    // Mouse move handler for potential future use
-    if (textRef.current) {
-      const rect = textRef.current.getBoundingClientRect();
-      // Future mouse tracking functionality can be added here
-      console.log('Mouse position:', e.clientX - rect.left, e.clientY - rect.top);
-    }
-  };
-
-  const getTransitionClasses = (index: number) => {
-    const isActive = index === currentImageIndex;
-    const effect = backgroundImages[index].effect;
-    
-    switch (effect) {
-      case 'fade-scale':
-        return `transition-all duration-1000 ease-in-out transform ${
-          isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-        }`;
-      
-      case 'slide-left':
-        return `transition-all duration-1000 ease-in-out transform ${
-          isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
-        }`;
-      
-      case 'slide-right':
-        return `transition-all duration-1000 ease-in-out transform ${
-          isActive ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
-        }`;
-      
-      case 'zoom-rotate':
-        return `transition-all duration-1000 ease-in-out transform ${
-          isActive ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-125 rotate-12'
-        }`;
-      
-      case 'flip-horizontal':
-        return `transition-all duration-1000 ease-in-out transform ${
-          isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
-        }`;
-      
-      default:
-        return `transition-all duration-1000 ease-in-out transform ${
-          isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-        }`;
-    }
-  };
-
-
+export default function Hero() {
   return (
-    <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[75vh] lg:h-[80vh] xl:h-[85vh] overflow-hidden">
-      {/* Sliding Background Images */}
-      {backgroundImages.map((imageData, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${getTransitionClasses(index)}`}
-          style={{ 
-            backgroundImage: `url('${imageData.src}')`,
-            filter: index === currentImageIndex ? 'brightness(1)' : 'brightness(0.8)'
-          }}
-        />
-      ))}
+    <section className="relative h-screen w-full overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/home1.png')" }}
+      />
+      <div className="absolute inset-0 bg-black/5" />
 
-      {/* Subtle bottom shadow */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1400px] items-center px-6 sm:px-10 lg:px-16">
+        <div className="max-w-[760px] text-white">
+          <h1
+            className="mb-6 text-[clamp(2rem,5.8vw,48px)] leading-[1.02] tracking-normal"
+            style={{ fontFamily: 'Cormorant Garamond, serif' }}
+          >
+            Your Trusted
+            Partner for <br />Construction Estimating
+            <br />
+            Services
+          </h1>
 
-      {/* Main Text */}
-      <div 
-        ref={textRef}
-        className="absolute z-10 bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-8 left-1/2 -translate-x-1/2"
-        onMouseMove={handleMouseMove}
-      >
-        <h1
-          className="uppercase font-bold tracking-wide text-blue-500 drop-shadow-lg text-center whitespace-nowrap
-                     text-lg sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl
-                     transition-transform duration-300 ease-in-out
-                     hover:scale-110 cursor-pointer"
-          style={{
-            fontFamily:
-              'SF Compact, system-ui, -apple-system, BlinkMacSystemFont, SF Compact',
-            lineHeight: '100%',
-            filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.5))',
-          }}
-        >
-          ESTIMATE RIGHT BUILD BRIGHT.
-        </h1>
+          <p
+            className="mb-10 max-w-[700px] text-[clamp(1rem,2.8vw,24px)] font-normal leading-[1.45]"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
+            Supporting contractors with fast, accurate, and professional estimating services for all project types.
+          </p>
+
+          <div className="flex w-full max-w-[360px] flex-nowrap items-center gap-2 sm:w-auto sm:max-w-none sm:gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-transparent bg-blue-600 px-4 text-base font-medium text-white transition-colors duration-300 hover:bg-blue-500 sm:w-[170px] sm:flex-none sm:px-6"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            >
+              <span>Get a Quote</span>
+              <span aria-hidden="true">↗</span>
+            </Link>
+            <button
+              className="inline-flex h-12 flex-1 items-center justify-center rounded-xl border border-white/60 bg-white/10 px-4 text-base font-medium text-white transition-colors duration-300 hover:bg-white hover:text-gray-900 sm:w-[170px] sm:flex-none sm:px-6"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            >
+              Call Us
+            </button>
+          </div>
+        </div>
       </div>
-
-      {/* Bottom progress indicator dots */}
-      <div className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 flex space-x-1 sm:space-x-2 z-20">
-        {backgroundImages.map((_, index) => (
-          <div
-            key={index}
-            className={`w-1 h-1 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
-              index === currentImageIndex ? 'bg-blue-500' : 'bg-white/40'
-            }`}
-          />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 }

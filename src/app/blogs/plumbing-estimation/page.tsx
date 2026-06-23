@@ -24,7 +24,7 @@ export default function PlumbingEstimation() {
           </h1>
           <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-6">
             <Image
-              src="/a2.jpg"
+              src="/home-blog2.jpg"
               alt="Plumbing Estimation"
               fill
               className="object-cover"

@@ -1,12 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    lastName: '',
     firstName: '',
+    lastName: '',
+    uploadFileName: '',
     email: '',
     phone: '',
     message: ''
@@ -20,6 +20,14 @@ export default function ContactForm() {
     setFormData(prev => ({
       ...prev,
       [name]: value
+    }));
+  };
+  
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    setFormData(prev => ({
+      ...prev,
+      uploadFileName: file ? file.name : ''
     }));
   };
 
@@ -54,6 +62,7 @@ export default function ContactForm() {
     setFormData({
       firstName: '',
       lastName: '',
+      uploadFileName: '',
       email: '',
       phone: '',
       message: ''
@@ -66,29 +75,8 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 relative overflow-hidden">
-      {/* Animated background stars */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-white rounded-full opacity-60"
-            style={{
-              width: Math.random() * 3 + 'px',
-              height: Math.random() * 3 + 'px',
-              top: Math.random() * 100 + '%',
-              left: Math.random() * 100 + '%',
-              animation: `twinkle ${Math.random() * 3 + 2}s infinite`
-            }}
-          />
-        ))}
-      </div>
-
+    <div className="min-h-screen bg-black px-4 py-12 md:px-8 md:py-20">
       <style>{`
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 1; }
-        }
         @keyframes slideUp {
           from {
             transform: translateY(100px);
@@ -104,128 +92,192 @@ export default function ContactForm() {
         }
       `}</style>
 
-      {/* Thank You Popup */}
       {showThankYou && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 slide-up">
           <div 
-            className="bg-gradient-to-br from-blue-600 to-blue-800 p-8 rounded-2xl shadow-2xl text-center max-w-md mx-4"
-            style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
+            className="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-md mx-4"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
           >
-            <div className="text-6xl mb-4">🌟</div>
-            <h2 className="text-white text-3xl font-bold mb-2">Thank You!</h2>
-            <p className="text-blue-100 text-lg">Your message has been sent successfully. We&apos;ll get back to you soon!</p>
+            <h2 className="text-black text-3xl font-semibold mb-2">Thank You!</h2>
+            <p className="text-gray-700 text-base">Your message has been sent successfully. We&apos;ll get back to you soon!</p>
           </div>
         </div>
       )}
 
-      <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* Header */}
-        <div 
-          className="text-center mb-12"
-          style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-        >
-          <h1 className="text-white mb-4 font-black text-[69.03px] leading-[80%] tracking-[-0.03em]">
-            Get in <span className="bg-gradient-to-r from-white via-[#2997FF] to-[#0083FF] bg-clip-text text-transparent">touch</span>
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 md:flex-row md:items-center md:justify-between">
+        <div className="max-w-lg">
+          <h1
+            className="text-white"
+            style={{
+              fontFamily: 'Cormorant Garamond, serif',
+              fontWeight: 600,
+              fontSize: '40px',
+              lineHeight: '100%'
+            }}
+          >
+            Send Us Your Plans &amp;
+            <br />
+            Let Our Experts
+            <br />
+            Handle The Numbers
           </h1>
-          <p className="text-gray-300 font-medium text-[13.24px] leading-[0%] tracking-normal">
-            Reach out, and let&apos;s create a universe of possibilities together!
+          <p
+            className="mt-8 text-sm text-gray-300 md:text-base"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
+            From quantity takeoff to detailed pricing, our estimators provide clear and dependable solutions that
+            help you plan better, bid smarter, and manage project costs with confidence. We help general contractors,
+            builders, architects, engineering firms, and lenders make informed decisions with reliable estimating support.
           </p>
+          <div
+            className="mt-10 space-y-2 text-sm text-gray-200"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
+            <p className="flex items-center gap-3">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 7L12 13L21 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <rect x="3" y="5" width="18" height="14" rx="2" stroke="white" strokeWidth="2" />
+                </svg>
+              </span>
+              <span>info@estimatingbuddies.com</span>
+            </p>
+            <p className="flex items-center gap-3">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-white/10">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M22 16.92V20A2 2 0 0 1 19.82 22A19.79 19.79 0 0 1 11.2 18.9A19.5 19.5 0 0 1 5.1 12.8A19.79 19.79 0 0 1 2 4.18A2 2 0 0 1 4 2H7.09A2 2 0 0 1 9.09 3.72C9.21 4.62 9.43 5.5 9.74 6.35A2 2 0 0 1 9.29 8.46L8 9.75A16 16 0 0 0 14.25 16L15.54 14.71A2 2 0 0 1 17.65 14.26C18.5 14.57 19.38 14.79 20.28 14.91A2 2 0 0 1 22 16.92Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <span>+1 512-828-1066</span>
+            </p>
+          </div>
         </div>
 
-        {/* Main Content */}
-        <div className="max-w-5xl mx-auto">
-          {/* Combined Container */}
-          <div className="bg-gray-800 bg-opacity-40 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-gray-700">
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Left Side - Form */}
-              <div style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}>
-                <h2 className="text-white mb-2 font-semibold text-[28.97px] leading-[100%] tracking-[-0.02em]">Let&apos;s connect</h2>
-                <p className="text-gray-400 mb-4 font-normal text-[15.45px] leading-[100%] tracking-[-0.01em]">
-                  Let&apos;s align! Reach out and let the magic of <br />collaboration illuminate our skies.
-                </p>
+        <div className="w-full max-w-3xl rounded-2xl bg-[#f5f5f5] p-6 shadow-[0_12px_30px_rgba(0,0,0,0.35)] md:p-8">
+          <h2
+            className="text-3xl text-black"
+            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600 }}
+          >
+            Request a Quote
+          </h2>
+          <p
+            className="mt-1 text-sm text-gray-600"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
+            Response within 24 hours
+          </p>
 
-                <div className="space-y-3">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <input
-                      type="text"
-                      name="firstName"
-                      placeholder="First Name"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      className="w-full bg-gray-900 bg-opacity-50 text-white placeholder-gray-500 px-3 py-2 rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-sm"
-                      style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-                    />
-                    <input
-                      type="text"
-                      name="lastName"
-                      placeholder="Last Name"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      className="w-full bg-gray-900 bg-opacity-50 text-white placeholder-gray-500 px-3 py-2 rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-sm"
-                      style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-                    />
-                  </div>
-
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full bg-gray-900 bg-opacity-50 text-white placeholder-gray-500 px-3 py-2 rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-sm"
-                    style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-                  />
-
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full bg-gray-900 bg-opacity-50 text-white placeholder-gray-500 px-3 py-2 rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition text-sm"
-                    style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-                  />
-
-                  <textarea
-                    name="message"
-                    placeholder="Message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={3}
-                    className="w-full bg-gray-900 bg-opacity-50 text-white placeholder-gray-500 px-3 py-2 rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none text-sm"
-                    style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-                  />
-
-              <div className="flex justify-center">
-                <button
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                  className="text-white font-bold py-2 px-6 rounded-full transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm bg-gradient-to-r from-[#2991F4] to-transparent"
-                  style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
+          <div className="mt-6 space-y-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label className="mb-1 block text-sm text-black" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="e.g. John Smith"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-3 text-sm text-black placeholder-gray-400 focus:border-black focus:outline-none"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                />
               </div>
-                </div>
-              </div>
-
-              {/* Right Side - Map */}
-              <div className="flex flex-col justify-center relative min-h-[300px]">
-                <a 
-                  href="https://maps.app.goo.gl/fMW4FN4Yo48bWuhq5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cursor-pointer relative w-full h-full"
-                >
-                  <Image 
-                    src="/images/map.jpg" 
-                    alt="Location Map"
-                    fill
-                    className="rounded-xl shadow-lg object-cover hover:opacity-90 transition-opacity"
-                  />
-                </a>
+              <div>
+                <label className="mb-1 block text-sm text-black" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Doe"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-3 text-sm text-black placeholder-gray-400 focus:border-black focus:outline-none"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                />
               </div>
             </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label className="mb-1 block text-sm text-black" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="john@company.com"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-3 text-sm text-black placeholder-gray-400 focus:border-black focus:outline-none"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-sm text-black" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="(555) 000-0000"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full rounded-lg border border-gray-300 bg-white px-3 py-3 text-sm text-black placeholder-gray-400 focus:border-black focus:outline-none"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="mb-1 block text-sm text-black" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Upload Plans (PDF, Image, ZIP)
+              </label>
+              <input
+                type="file"
+                name="uploadFileName"
+                accept=".pdf,.zip,image/*"
+                onChange={handleFileChange}
+                className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-black file:mr-3 file:rounded-md file:border-0 file:bg-black file:px-3 file:py-2 file:text-sm file:text-white hover:file:bg-gray-900 focus:border-black focus:outline-none"
+                style={{ fontFamily: 'Poppins, sans-serif' }}
+              />
+              {formData.uploadFileName && (
+                <p className="mt-2 text-xs text-gray-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  Selected: {formData.uploadFileName}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <label className="mb-1 block text-sm text-black" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Message / Scope Of Work
+              </label>
+              <textarea
+                name="message"
+                placeholder="Briefly describe your estimation needs..."
+                value={formData.message}
+                onChange={handleInputChange}
+                rows={4}
+                className="w-full resize-none rounded-lg border border-gray-300 bg-white px-3 py-3 text-sm text-black placeholder-gray-400 focus:border-black focus:outline-none"
+                style={{ fontFamily: 'Poppins, sans-serif' }}
+              />
+            </div>
+
+            <button
+              onClick={handleSubmit}
+              disabled={isSubmitting}
+              className="w-full rounded-lg bg-black px-6 py-3 text-center text-base text-white transition hover:bg-gray-900 disabled:cursor-not-allowed disabled:opacity-50"
+              style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 500 }}
+            >
+              {isSubmitting ? 'Sending...' : 'Submit'}
+            </button>
           </div>
         </div>
       </div>

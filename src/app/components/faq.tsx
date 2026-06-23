@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { IoChevronDown, IoChevronForward } from "react-icons/io5";
+import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
 const faqs = [
   {
@@ -8,126 +8,127 @@ const faqs = [
     answer: "Precise quantity takeoff is the foundation of every successful project. We deliver detailed measurements and material breakdowns that remove guesswork and improve efficiency. Whether it's residential, commercial, or industrial work, our takeoffs help you plan better, reduce waste, and bid smarter."
   },
   {
-    question: "What is construction estimating, and why is it important?",
-    answer: "Construction estimating is the process of calculating the cost and resources required for a construction project, which is crucial for budgeting and project planning."
+    question: "What makes your estimates reliable for bidding?",
+    answer: "Our estimates are based on current market rates, detailed material lists, and comprehensive labor analysis, ensuring competitive and accurate bids."
+  },
+  {
+    question: "How long does a construction estimate usually take?",
+    answer: "Turnaround depends on project size and drawing quality, but most estimates are delivered within 24-72 hours with a clear scope and detailed plans."
   },
   {
     question: "How does your estimating company stand out from others?",
     answer: "We combine advanced technology with experienced professionals to deliver accurate estimates with faster turnaround times and detailed breakdowns."
   },
   {
-    question: "Do you only work on large projects, or do you handle smaller residential jobs too?",
-    answer: "We handle projects of all sizes, from small residential renovations to large commercial and industrial construction projects."
-  },
-  {
-    question: "Do you provide certified professional estimator services?",
-    answer: "Yes, our team includes certified professional estimators who ensure accuracy and compliance with industry standards."
-  },
-  {
-    question: "What makes your estimates reliable for bidding?",
-    answer: "Our estimates are based on current market rates, detailed material lists, and comprehensive labor analysis, ensuring competitive and accurate bids."
-  },
-  {
     question: "Do you offer outsourcing for estimating services?",
     answer: "Yes, we provide complete outsourcing solutions for estimating services, allowing you to focus on your core business operations."
   },
   {
-    question: "What information do you need to start my estimate?",
-    answer: "We typically need project plans, specifications, site conditions, and any special requirements to provide an accurate estimate."
+    question: "We handle both large projects and smaller residential jobs.",
+    answer: "From home renovations to large-scale commercial builds, our estimating process scales based on project complexity and timeline."
   },
   {
     question: "Can you handle multi-trade and complex projects?",
     answer: "Absolutely, we specialize in multi-trade projects and can coordinate estimates across different construction disciplines."
   },
   {
-    question: "How do you handle design changes during the estimating process?",
-    answer: "We maintain flexible processes to accommodate design changes and provide updated estimates promptly to keep your project on track."
+    question: "Do you provide certified professional estimator services?",
+    answer: "Yes, our team includes certified professional estimators who ensure accuracy and compliance with industry standards."
   },
   {
-    question: "What tools do your construction estimators use?",
-    answer: "We use industry-leading software including PlanSwift, Bluebeam, and other advanced estimating tools for accuracy and efficiency."
+    question: "What information do you need to start my estimate?",
+    answer: "We typically need project plans, specifications, site conditions, and any special requirements to provide an accurate estimate."
+  },
+  {
+    question: "How do you handle design changes during the estimating process?",
+    answer: "We maintain flexible processes to accommodate design changes and provide updated estimates promptly to keep your project on track."
   }
 ];
 
 export default function FAQPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<number[]>([0, 1]);
+
+  const leftColumnFaqs = faqs.filter((_, index) => index % 2 === 0);
+  const rightColumnFaqs = faqs.filter((_, index) => index % 2 !== 0);
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndexes((prev) =>
+      prev.includes(index) ? prev.filter((item) => item !== index) : [...prev, index]
+    );
   };
 
   return (
-    <div className="min-h-screen py-4 px-4 lg:py-6 bg-black">
-      <div className="max-w-4xl mx-auto">
+    <div className="py-4 md:py-5 px-4 md:px-8 bg-[#f3f3f3]">
+      <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-6 lg:mb-8">
+        <div className="text-center mb-5 md:mb-6">
           <h1 
-            className="mb-4 text-3xl lg:text-[50px] leading-8 lg:leading-[54px] tracking-[-0.8px] lg:tracking-[-1.2px] text-center text-[#C8C2BD]"
+            className="text-[#1f1f1f]"
             style={{
-              fontFamily: 'SF Compact, -apple-system, BlinkMacSystemFont, sans-serif',
-              fontWeight: 790
+              fontFamily: '"Cormorant Garamond", serif',
+              fontWeight: 700,
+              fontStyle: "italic",
+              fontSize: "45px",
+              letterSpacing: "0.02em",
+              textAlign: "center",
+              textTransform: "capitalize"
             }}
           >
-            FAQs
+            Frequently Asked Questions
           </h1>
+          <div className="w-14 h-1 bg-[#2d9cff] rounded-full mx-auto mt-3" />
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-3 lg:space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="w-full bg-[#0A0A0A] bg-opacity-20 rounded-sm border-b border-[#1C41E4] min-h-8 backdrop-blur-[10px]"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full h-full px-3 py-2 lg:px-4 lg:py-3 text-left flex items-center justify-between group focus:outline-none transition-colors duration-200 min-h-8"
-              >
-                <span 
-                  className="text-gray-200 font-normal text-xs lg:text-sm xl:text-base pr-3 lg:pr-4 leading-relaxed"
-                  style={{
-                    fontFamily: 'SF Compact, -apple-system, BlinkMacSystemFont, sans-serif'
-                  }}
-                >
-                  {faq.question}
-                </span>
-                <div className="flex-shrink-0 ml-2 lg:ml-4">
-                  {openIndex === index ? (
-                    <IoChevronDown className="w-4 h-4 lg:w-5 lg:h-5 text-gray-400 transform transition-transform duration-200" />
-                  ) : (
-                    <IoChevronForward className="w-4 h-4 lg:w-5 lg:h-5 text-gray-400 transform transition-transform duration-200 group-hover:text-gray-300" />
-                  )}
-                </div>
-              </button>
-              
-              <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
-                <div className="pb-2 lg:pb-3 px-3 lg:px-4">
-                  <p 
-                    className="text-gray-300 text-xs lg:text-sm leading-relaxed"
-                    style={{
-                      fontFamily: 'SF Compact, -apple-system, BlinkMacSystemFont, sans-serif'
-                    }}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          {[leftColumnFaqs, rightColumnFaqs].map((columnFaqs, columnIndex) => (
+            <div key={columnIndex} className="space-y-5">
+              {columnFaqs.map((faq, innerIndex) => {
+                const faqIndex = columnIndex === 0 ? innerIndex * 2 : innerIndex * 2 + 1;
+                const isOpen = openIndexes.includes(faqIndex);
+
+                return (
+                  <div
+                    key={`${faq.question}-${faqIndex}`}
+                    className={`w-full rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-[#e5e5e5] bg-white transition-all ${
+                      isOpen ? "p-5" : "p-4"
+                    }`}
                   >
-                    {faq.answer}
-                  </p>
-                </div>
-              </div>
+                    <button
+                      onClick={() => toggleFAQ(faqIndex)}
+                      className="w-full text-left flex items-center justify-between gap-4 focus:outline-none"
+                    >
+                      <span
+                        className="font-medium text-[#4a4a4a] leading-relaxed"
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "16px"
+                        }}
+                      >
+                        {faq.question}
+                      </span>
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#2d9cff] text-white flex items-center justify-center">
+                        {isOpen ? <IoChevronUp className="w-3.5 h-3.5" /> : <IoChevronDown className="w-3.5 h-3.5" />}
+                      </span>
+                    </button>
+
+                    {isOpen && (
+                      <p
+                        className="mt-3 text-[#777] leading-relaxed"
+                        style={{
+                          fontFamily: "Poppins, sans-serif",
+                          fontSize: "16px"
+                        }}
+                      >
+                        {faq.answer}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           ))}
         </div>
-        
-        {/* Bottom horizontal line */}
-        <div 
-          className="w-full mt-6 lg:mt-10"
-          style={{
-            borderBottom: '0.5px solid rgba(255, 255, 255, 0.57)',
-            height: '1px'
-          }}
-        ></div>
       </div>
     </div>
   );

@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "build:with-gtm": "next build --turbopack && node scripts/inject-gtm.js",
     "export": "next export",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "inject-gtm": "node scripts/inject-gtm.js"
   },
   "dependencies": {
     "next": "15.5.3",
