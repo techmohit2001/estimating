@@ -25,34 +25,6 @@ const brandGradient =
 
 const SECTIONS = [
   {
-    key: 'intro',
-    titleHighlight: 'Plumbing',
-    titleRest: 'Estimating Services',
-    body: (
-      <p>
-        Plumbing costs add up fast when items get missed-pipe sizes, fittings, fixtures, valves,
-        supports, specialties, and equipment. Our{' '}
-        <strong className="font-bold">plumbing estimating services</strong> turn your drawings and
-        specs into clear quantities and organized pricing support, so you can bid and plan with fewer
-        surprises.
-      </p>
-    ),
-  },
-  {
-    key: 'takeoff',
-    titleHighlight: 'Plumbing',
-    titleRest: 'Quantity Takeoff',
-    body: (
-      <p>
-        Our <strong className="font-bold">plumbing quantity takeoff</strong> provides a detailed
-        breakdown of plumbing materials required for the project. We quantify pipes by size and
-        length, fittings, valves, fixtures, drains, vents, cleanouts, carriers, hangers, sleeves,
-        insulation, and specialty items. If information is missing, we list assumptions clearly so
-        your team can confirm before final pricing.
-      </p>
-    ),
-  },
-  {
     key: 'material-labor',
     titleHighlight: 'Material',
     titleRest: 'and Labor Cost Estimating',
@@ -99,65 +71,43 @@ const SECTIONS = [
     titleRest: 'We Serve',
     body: (
       <p>
-        We support{' '}
+        <strong className="font-bold">Estimating Buddies</strong> provides construction estimating
+        services for a wide range of construction professionals. We support{' '}
         <strong className="font-bold">
-          plumbing contractors, general contractors, builders, and developers
+          general contractors, subcontractors, builders, developers, project managers, and construction
+          firms
         </strong>{' '}
-        with estimating for projects across the <strong className="font-bold">USA and Canada</strong>.
+        looking for accurate cost estimates and quantity takeoffs. Whether you are bidding on
+        residential, commercial, industrial, or renovation projects, our estimating team delivers the
+        reliable data needed to{' '}
+        <strong className="font-bold">
+          plan budgets, submit competitive bids, and manage project costs
+        </strong>{' '}
+        more effectively.
       </p>
     ),
   },
-  {
-    key: 'process',
-    titleHighlight: 'Our Plumbing',
-    titleRest: 'Estimating Process',
-    body: (
-      <ol className="list-decimal space-y-4 pl-5">
-        <li>
-          <strong className="font-bold">Document Review:</strong> We review your plumbing drawings,
-          specifications, fixture schedules, riser diagrams, details, and addenda to understand the
-          complete project scope.
-        </li>
-        <li>
-          <strong className="font-bold">Scope Identification:</strong> Our team identifies all plumbing
-          systems, materials, quantities, equipment, and possible missing information before starting
-          the takeoff.
-        </li>
-        <li>
-          <strong className="font-bold">Plumbing Quantity Takeoff:</strong> We measure pipe runs,
-          count fittings, identify valves, review fixtures, calculate equipment quantities, and
-          organize all required plumbing items.
-        </li>
-        <li>
-          <strong className="font-bold">Cost Estimation:</strong> We prepare a clear estimate with
-          material costs, labor costs, equipment pricing, and complete plumbing scope details based on
-          the measured quantities.
-        </li>
-        <li>
-          <strong className="font-bold">Final Estimate Delivery:</strong> After quality checking for
-          missing items, scope gaps, calculation issues, and formatting errors, we deliver the final
-          estimate with quantities, costs, bid summary, assumptions, exclusions, and notes.
-        </li>
-      </ol>
-    ),
-  },
+
   {
     key: 'benefits',
     titleHighlight: 'Benefits of Professional',
     titleRest: 'Plumbing Estimating Services',
     body: (
-      <p>
-        Professional plumbing estimating helps contractors save time, reduce bid errors, and prepare
-        more reliable proposals. Instead of spending hours manually measuring drawings, your team can
-        focus on client communication, project planning, supplier coordination, and bid strategy. A
-        detailed estimate gives you better cost clarity before submitting the bid. It helps identify
-        material quantities, labor requirements, equipment needs, and possible missing scope. This
-        reduces the risk of underpricing, overpricing, and last-minute bid confusion. For growing
-        plumbing contractors and general contractors, outsourcing estimating work can also improve
-        productivity. You can bid on more projects while keeping your internal team focused on active
-        jobs.
-      </p>
-    ),
+      <>
+        <p>
+          Professional plumbing estimating helps contractors prepare accurate bids, control costs, and
+          save valuable time. With reliable estimates, you can bid with confidence and improve project
+          profitability.
+        </p>
+        <ul className="mt-5 list-disc space-y-3 pl-5">
+          <li>Accurate material and labor calculations</li>
+          <li>Reduced bidding errors and cost overruns</li>
+          <li>Faster bid preparation and submission</li>
+          <li>Better project budgeting and planning</li>
+          <li>More time to focus on managing projects</li>
+          <li>Increased chances of winning profitable bids</li>
+        </ul>
+      </>    ),
   },
 ] as const;
 

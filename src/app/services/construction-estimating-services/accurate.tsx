@@ -78,11 +78,7 @@ export default function Accurate() {
                 textTransform: 'capitalize',
               }}
             >
-              Construction Estimating Services
-              <br />
-              For Contractors, Builders &amp;
-              <br />
-              Developers
+              Construction Estimating for Builders &amp; Contractors
             </h2>
             <span
               className="mt-3 block h-[3px] w-11 rounded-full"

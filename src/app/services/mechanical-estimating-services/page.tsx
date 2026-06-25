@@ -10,7 +10,7 @@ import Software from './software';
 import Choose from './choose';
 import Industrial from './industrial';
 import Cover from './cover';
-import Detailed from './detailed';
+//import Detailed from './detailed';
 import Ready from './ready';
 import ServiceSidebar from './service-sidebar';
 import FAQ from './faq';
@@ -35,10 +35,11 @@ export default function Home() {
               <Commercial />          
               <Scope />
               <Software />
-              <Choose />
+              
               <Industrial />
               <Cover /> 
-              <Detailed />
+              {/*<Detailed />*/}
+              <Choose />
               <Ready />
               </div>
             <aside className="hidden lg:block lg:sticky lg:top-[72px] lg:bottom-24 lg:z-30 lg:self-start lg:pt-8 xl:pt-14">

@@ -34,7 +34,7 @@ export default function Solve() {
               textTransform: 'capitalize',
             }}
           >
-            Reliable Electrical Cost Estimating for Better Bids
+            Reliable Electrical Cost Estimating
           </h2>
           <span
             className="mt-2 block h-1 w-14 rounded-sm bg-[#2997FF]"

@@ -178,14 +178,14 @@ export default function Quantity() {
         }}
       >
         <span className="relative inline-block">
-          Our
+          Scope
           <span
             className="absolute left-0 top-full mt-1 h-[3px] w-[1.15em] rounded-full"
             style={{ background: brandGradient }}
             aria-hidden
           />
         </span>{' '}
-        Mechanical Estimating Services
+        of our Mechanical Estimating services
       </h2>
 
       <p

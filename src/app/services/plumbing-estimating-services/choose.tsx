@@ -22,12 +22,6 @@ const bodyTextStyle = {
 const brandGradient =
   'linear-gradient(90deg, #2997FF 0%, #0068CB 100%), linear-gradient(0deg, #2997FF, #2997FF)';
 
-const HIGHLIGHTS = [
-  'Dedicated plumbing estimators with hands-on experience across USA.',
-  'Fast turnaround on detailed takeoffs, bid estimates, and material quantities for residential, commercial, and industrial scopes.',
-  'Location-based, up-to-date pricing for material, labor, and equipment to help you bid with confidence.',
-] as const;
-
 export default function Choose() {
   return (
     <section className="w-full pt-2 pb-8 lg:pt-3 lg:pb-10">
@@ -57,23 +51,8 @@ export default function Choose() {
           style={bodyTextStyle}
         >
           <p>
-        Choosing the right estimating partner matters because your bid depends on the quality of your
-        estimate. At Estimating Buddies, we prepare plumbing estimates with careful drawing review,
-        clear quantity takeoff, practical cost breakdowns, and organized reporting. We understand
-        plumbing drawings and know how to convert project documents into usable estimating reports.
-        Our team focuses on clear communication, accurate quantities, and reliable support for
-        residential and commercial projects. Clients choose us because we help save time, reduce
-        risk, and improve bidding confidence. Whether you need plumbing estimating services,
-        mechanical estimating services, architectural cost estimating, or full estimating support from
-        a USA estimating company, we are ready to help.
-        </p>
-
-          <p className="!mt-6 font-semibold text-[#1a1a1a]">Our key business highlights:</p>
-          <ul className="list-disc space-y-3 pl-5">
-            {HIGHLIGHTS.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+            At Estimating Buddies, we provide accurate plumbing estimating services that help contractors prepare reliable bids and make informed decisions. Our team focuses on detailed quantity takeoffs, timely delivery, and clear reporting to support successful residential and commercial projects. With practical industry experience and dependable estimating support, we help you save time and bid with confidence.
+          </p>
         </div>
       </div>
     </section>

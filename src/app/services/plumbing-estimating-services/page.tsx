@@ -3,8 +3,8 @@ import Accurate from './accurate';
 import Solve from './solve';
 import Residential from './residesntial';
 import Commercial from './commercial';
-import Industrial from './industrial';
 import Cover from './cover';
+import Scope from './scope';
 import Choose from './choose';
 import Ready from './ready';
 import ServiceSidebar from './service-sidebar';
@@ -26,8 +26,8 @@ export default function Home() {
               <Solve />
               <Residential />
               <Commercial />
-              <Industrial />
               <Cover />
+              <Scope />
               <Choose />
               <Ready />
             </div>

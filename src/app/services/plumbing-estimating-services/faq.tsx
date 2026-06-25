@@ -4,44 +4,36 @@ import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
 const faqs = [
   {
-    question: "What is construction estimating, and why is it important?",
-    answer: "Precise quantity takeoff is the foundation of every successful project. We deliver detailed measurements and material breakdowns that remove guesswork and improve efficiency. Whether it's residential, commercial, or industrial work, our takeoffs help you plan better, reduce waste, and bid smarter."
+    question: "Why should I outsource plumbing estimating services?",
+    answer: "Outsourcing plumbing estimating services helps contractors save time, reduce overhead costs, and improve bid accuracy. Professional estimators handle quantity takeoffs and cost calculations, allowing your team to focus on project execution and business growth. Accurate estimates also help you submit competitive bids and increase your chances of winning profitable projects."
   },
   {
-    question: "What makes your estimates reliable for bidding?",
-    answer: "Our estimates are based on current market rates, detailed material lists, and comprehensive labor analysis, ensuring competitive and accurate bids."
+    question: "What is included in a plumbing quantity takeoff?",
+    answer: "A plumbing quantity takeoff provides a detailed breakdown of all materials required for a project. This typically includes pipes, fittings, valves, fixtures, cleanouts, supports, insulation, pumps, water heaters, and drainage components. By identifying the exact quantities needed, plumbing contractors can improve procurement planning, reduce material waste, and create more accurate project budgets and bid proposals."
   },
   {
-    question: "How long does a construction estimate usually take?",
-    answer: "Turnaround depends on project size and drawing quality, but most estimates are delivered within 24-72 hours with a clear scope and detailed plans."
+    question: "How accurate are your plumbing estimating services?",
+    answer: "Our plumbing estimates are prepared by experienced estimators who carefully review project plans, specifications, and scope requirements. We use industry-standard estimating methods and current cost data to deliver reliable estimates. While actual costs may vary based on market conditions and project changes, our goal is to provide highly accurate estimates that help contractors bid competitively and confidently."
   },
   {
-    question: "How does your estimating company stand out from others?",
-    answer: "We combine advanced technology with experienced professionals to deliver accurate estimates with faster turnaround times and detailed breakdowns."
+    question: "Who can benefit from professional plumbing estimating services?",
+    answer: "Plumbing contractors, subcontractors, general contractors, builders, developers, and construction management firms can all benefit from professional plumbing estimating services. Whether you are bidding on a residential home, apartment complex, office building, healthcare facility, or industrial project, accurate estimates help save time, improve profitability, and increase bidding efficiency."
   },
   {
-    question: "Do you offer outsourcing for estimating services?",
-    answer: "Yes, we provide complete outsourcing solutions for estimating services, allowing you to focus on your core business operations."
+    question: "What types of plumbing projects do you estimate?",
+    answer: "We provide plumbing estimating services for a wide range of construction projects, including residential, commercial, institutional, and industrial developments. Our experience covers single-family homes, multi-family housing, schools, hospitals, hotels, retail centers, warehouses, manufacturing facilities, and mixed-use developments. We can handle projects of varying sizes and complexity levels."
   },
   {
-    question: "We handle both large projects and smaller residential jobs.",
-    answer: "From home renovations to large-scale commercial builds, our estimating process scales based on project complexity and timeline."
+    question: "How quickly can you deliver a plumbing estimate?",
+    answer: "The turnaround time depends on the size, scope, and complexity of the project. Smaller residential projects can often be completed within 24 to 48 hours, while larger commercial or industrial projects may require additional time for detailed review. We work closely with contractors to meet bidding deadlines and provide estimates within the agreed timeframe whenever possible."
   },
   {
-    question: "Can you handle multi-trade and complex projects?",
-    answer: "Absolutely, we specialize in multi-trade projects and can coordinate estimates across different construction disciplines."
+    question: "What information do you need to prepare a plumbing estimate?",
+    answer: "To prepare an accurate plumbing estimate, we typically require construction drawings, plumbing plans, specifications, bid documents, and any project-specific requirements. Additional information such as material preferences, project location, and scope clarifications can further improve estimate accuracy. Once we review the documents, we can provide a detailed cost estimate and quantity takeoff tailored to the project."
   },
   {
-    question: "Do you provide certified professional estimator services?",
-    answer: "Yes, our team includes certified professional estimators who ensure accuracy and compliance with industry standards."
-  },
-  {
-    question: "What information do you need to start my estimate?",
-    answer: "We typically need project plans, specifications, site conditions, and any special requirements to provide an accurate estimate."
-  },
-  {
-    question: "How do you handle design changes during the estimating process?",
-    answer: "We maintain flexible processes to accommodate design changes and provide updated estimates promptly to keep your project on track."
+    question: "How can plumbing estimating services help contractors win more bids?",
+    answer: "Accurate plumbing estimating services allow contractors to submit competitive and well-informed bids without spending countless hours performing calculations in-house. Reliable estimates reduce the risk of underbidding, which can affect profitability, and overbidding, which can reduce bid competitiveness. By improving pricing accuracy and bid turnaround times, contractors can pursue more opportunities and increase their chances of securing profitable projects."
   }
 ];
 

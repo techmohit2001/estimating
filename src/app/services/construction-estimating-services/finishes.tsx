@@ -104,10 +104,12 @@ function AccordionCard({
 }
 
 export default function Finishes() {
-  const [openKey, setOpenKey] = useState<string | null>('drywall');
+  const [openKeys, setOpenKeys] = useState<string[]>(['drywall']);
 
   const toggle = (key: string) => {
-    setOpenKey((prev) => (prev === key ? null : key));
+    setOpenKeys((prev) =>
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
+    );
   };
 
   return (
@@ -138,7 +140,7 @@ export default function Finishes() {
             key={key}
             title={title}
             body={body}
-            isOpen={openKey === key}
+            isOpen={openKeys.includes(key)}
             onToggle={() => toggle(key)}
           />
         ))}

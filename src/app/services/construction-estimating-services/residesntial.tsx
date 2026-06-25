@@ -90,11 +90,7 @@ export default function Residential() {
             aria-hidden
           />
         </span>{' '}
-        You Receive with Our
-        <br />
-        Construction Estimating
-        <br />
-        Services
+        you receive
       </h2>
 
       <div

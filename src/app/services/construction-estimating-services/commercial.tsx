@@ -22,6 +22,17 @@ const bodyTextStyle = {
 const brandGradient =
   'linear-gradient(90deg, #2997FF 0%, #0068CB 100%), linear-gradient(0deg, #2997FF, #2997FF)';
 
+const BENEFITS = [
+  'Improve bid accuracy and competitiveness',
+  'Reduce costly estimating errors',
+  'Save time on manual calculations',
+  'Gain better control over project budgets',
+  'Identify material, labor, and equipment costs early',
+  'Increase bidding capacity and productivity',
+  'Make informed project planning decisions',
+  'Improve profitability and reduce risk of cost overruns',
+] as const;
+
 export default function Commercial() {
   return (
     <div className="w-full pb-8 lg:pb-10">
@@ -50,22 +61,17 @@ export default function Commercial() {
         style={bodyTextStyle}
       >
         <p>
-          A well-prepared estimate helps you bid smarter and avoid costly surprises during
-          construction. Our construction estimation services give you a clearer view of material
-          quantities, labor requirements, trade scope, and project cost structure before you commit
-          to pricing. With our estimating support, you can save time on manual takeoffs, reduce
-          missed quantities, and review your scope more confidently. Contractors can use our
-          estimates to prepare competitive bids without rushing through drawings at the last
-          minute. Builders and developers can use our cost reports to plan budgets, compare design
-          options, and make better financial decisions.
+          Accurate construction estimates help contractors, builders, and developers make informed
+          decisions before submitting bids. Our estimating services provide detailed cost
+          breakdowns, quantity takeoffs, and pricing insights that improve project planning and
+          reduce financial risk. With reliable estimates, you can focus on winning projects while
+          maintaining profitability.
         </p>
-        <p>
-          Our pre construction estimating services also help identify scope gaps early. This is
-          important because missing items during the bid stage can create change orders, disputes,
-          and margin pressure later. By reviewing drawings and quantities carefully before
-          construction starts, your team gets a stronger base for budgeting, procurement, and
-          project execution.
-        </p>
+        <ul className="list-disc space-y-3 pl-5">
+          {BENEFITS.map((benefit) => (
+            <li key={benefit}>{benefit}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

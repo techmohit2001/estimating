@@ -48,23 +48,17 @@ export default function Choose() {
           className={`${poppins.className} mt-6 text-[#303030]`}
           style={bodyTextStyle}
         >
-          Choosing the right <strong className="font-bold">electrical estimating</strong> company
-          can help you save time, reduce missed scope, and prepare better bids. Electrical estimating
-          requires careful attention because one missed circuit, panel item, fixture type, equipment
-          connection, or conduit run can affect the entire bid. We help contractors review drawings,
-          measure quantities, organize material lists, and prepare cost breakdowns in a clear format.
-          This allows your team to focus on supplier pricing, labor strategy, project coordination,
-          and bid submission instead of spending hours measuring drawings manually. Our estimates are
-          built for practical use. Whether you need{' '}
+          At Estimating Buddies, we help contractors save time, reduce missed scope, and prepare
+          accurate electrical bids with confidence. Our team reviews drawings, performs detailed
+          quantity takeoffs, and organizes material and cost data in a clear, easy-to-use format.
+          Whether you need{' '}
           <strong className="font-bold">
-            commercial electrical estimating, industrial electrical estimating, residential
-            electrical estimating, or complete electrical takeoff services
+            commercial, residential, or industrial electrical estimating services
           </strong>
-          , our team can support your project with organized estimating documents. As a trusted
-          construction estimation company, we also understand how electrical work connects with other
-          trades during project budgeting. That broader construction perspective helps contractors
-          review electrical scope within the full project cost instead of treating it as an isolated
-          number.
+          , we provide reliable estimating support that helps streamline bidding and project
+          planning. With a strong understanding of overall construction costs, we ensure electrical
+          estimates align with the broader project budget, helping you make informed decisions and
+          submit competitive bids.
         </p>
       </div>
     </section>
