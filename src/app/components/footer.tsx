@@ -8,10 +8,12 @@ import {
   FaLinkedinIn,
   FaFacebookF,
   FaXTwitter,
+  FaYoutube,
   FaPhone,
+  FaEnvelope,
+  FaLocationDot,
   FaArrowUp,
 } from "react-icons/fa6";
-import { FaLocationDot } from "react-icons/fa6";
 
 const Footer = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -37,9 +39,9 @@ const Footer = () => {
           {/* Left Side - Logo and Company Info */}
           <div className="lg:order-1 flex flex-col items-start w-full lg:w-auto">
             {/* Logo */}
-            <div className="w-10 h-10 lg:w-12 lg:h-[50px] mb-4 lg:mb-6 relative">
+            <div className="w-30 h-30 lg:w-35 lg:h-35 mb-4 lg:mb-6 relative">
               <Image 
-                src="/images/logo.png" 
+                src="/favicon.png" 
                 alt="Estimating Buddies Logo" 
                 fill
                 className="object-contain"
@@ -49,14 +51,18 @@ const Footer = () => {
             {/* Company Text */}
             <div className="w-full lg:w-[310px]">
               <h2 
-                className="text-white text-[25px] font-bold leading-[34px] tracking-[-1.2px] uppercase mb-4 lg:mb-6" 
+                className="text-white text-[20px] lg:text-[22px] font-bold leading-[34px] tracking-[-1.2px] uppercase mb-4 lg:mb-6" 
                 style={{ fontFamily: 'SF Compact, -apple-system, BlinkMacSystemFont, sans-serif', fontWeight: 790 }}
               >
-                TRANSFORMING COMPLEXITY INTO CLEAR, ACTIONABLE ESTIMATES.
+                TRANSFORMING <br /> COMPLEXITY INTO CLEAR, <br /> ACTIONABLE ESTIMATES.
               </h2>
               
               {/* Social Media Icons */}
               <div className="flex items-center gap-2.5 lg:gap-3.5">
+                <a href="https://www.instagram.com/estimatingbuddies/" target="_blank" rel="noopener noreferrer" 
+                   className="w-8 h-8 rounded-md bg-[#1E73D8] hover:bg-[#155DB2] text-white transition-colors flex items-center justify-center">
+                  <FaInstagram className="text-[13px]" />
+                </a>
                 <a href="https://www.facebook.com/people/Estimating-Buddies/61556785539225/?_rdr" target="_blank" rel="noopener noreferrer" 
                    className="w-8 h-8 rounded-md bg-[#1E73D8] hover:bg-[#155DB2] text-white transition-colors flex items-center justify-center">
                   <FaFacebookF className="text-[13px]" />
@@ -65,9 +71,9 @@ const Footer = () => {
                    className="w-8 h-8 rounded-md bg-[#1E73D8] hover:bg-[#155DB2] text-white transition-colors flex items-center justify-center">
                   <FaXTwitter className="text-[13px]" />
                 </a>
-                <a href="https://www.instagram.com/estimatingbuddies/" target="_blank" rel="noopener noreferrer" 
+                <a href="https://www.youtube.com/@EstimatingBuddies" target="_blank" rel="noopener noreferrer" 
                    className="w-8 h-8 rounded-md bg-[#1E73D8] hover:bg-[#155DB2] text-white transition-colors flex items-center justify-center">
-                  <FaInstagram className="text-[13px]" />
+                  <FaYoutube className="text-[13px]" />
                 </a>
                 <a href="https://www.linkedin.com/company/estimating-buddies/posts/?feedView=all" target="_blank" rel="noopener noreferrer" 
                    className="w-8 h-8 rounded-md bg-[#1E73D8] hover:bg-[#155DB2] text-white transition-colors flex items-center justify-center">
@@ -78,24 +84,24 @@ const Footer = () => {
           </div>
 
           {/* Right Sections - Pages, Service, Contact */}
-          <div className="grid grid-cols-2 gap-8 w-full lg:contents">
+          <div className="grid grid-cols-[auto_auto] gap-8 w-full lg:contents">
             {/* Center - Navigation Pages */}
             <div 
-              className="lg:order-2 w-full lg:w-auto lg:flex lg:flex-col lg:items-center"
+              className="lg:order-2 w-max lg:w-auto lg:flex lg:flex-col lg:items-start ml-0 lg:ml-8"
               style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
             >
-              <h4 className="text-white font-semibold mb-4 lg:mb-7 text-sm lg:text-base ml-0 lg:ml-8">Pages</h4>
-              <div className="space-y-3 lg:space-y-4 ml-0 lg:ml-15">
-                <Link href="/" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+              <h4 className="text-white font-semibold mb-4 lg:mb-7 text-sm lg:text-base">Pages</h4>
+              <div className="space-y-3 lg:space-y-4">
+                <Link href="/" className="block whitespace-nowrap text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
                   Home
                 </Link>
-                <a href="/about" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                <a href="/about" className="block whitespace-nowrap text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
                   About Us
                 </a>
-                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                <a href="/services" className="block whitespace-nowrap text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
                   Services
                 </a>
-                <a href="/contact" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                <a href="/contact" className="block whitespace-nowrap text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
                   Contact Us
                 </a>
               </div>
@@ -103,27 +109,27 @@ const Footer = () => {
 
             {/* Middle - Service */}
             <div
-              className="lg:order-3 w-full lg:w-auto lg:flex lg:flex-col lg:items-start"
+              className="lg:order-3 w-max lg:w-auto lg:flex lg:flex-col lg:items-start ml-0 lg:ml-12"
               style={{ fontFamily: 'SF Compact, system-ui, -apple-system, BlinkMacSystemFont' }}
             >
               <h4 className="text-white font-semibold mb-4 lg:mb-7 text-sm lg:text-base">Services</h4>
               <div className="space-y-3 lg:space-y-4">
-                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                <a href="/services" className="block whitespace-nowrap text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
                   Plumbing Estimating
                 </a>
-                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                <a href="/services" className="block whitespace-nowrap text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
                   Construction Estimating
                 </a>
-                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                <a href="/services" className="block whitespace-nowrap text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
                   Mechanical Estimating
                 </a>
-                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                <a href="/services" className="block whitespace-nowrap text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
                   Architectural Cost Estimating
                 </a>
-                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                <a href="/services" className="block whitespace-nowrap text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
                   Quantity Takeoff
                 </a>
-                <a href="/services" className="block text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
+                <a href="/services" className="block whitespace-nowrap text-white hover:text-blue-500 transition-colors text-xs lg:text-sm">
                   Electrical Estimating
                 </a>
               </div>
@@ -137,13 +143,11 @@ const Footer = () => {
               <h4 className="text-white font-semibold mb-4 lg:mb-6 text-sm lg:text-base ml-0 lg:ml-[100px]">Contact us</h4>
               <div className="space-y-4 lg:space-y-6 ml-0 lg:ml-[100px]">
                 {/* Email */}
-                <div className="flex items-start gap-2 lg:gap-3">
-                  <div className="w-3 h-3 lg:w-4 lg:h-4 flex items-center justify-center">
-                    <span className="text-white text-xs lg:text-sm">✉</span>
-                  </div>
+                <div className="flex items-start gap-3 lg:gap-4">
+                  <FaEnvelope className="text-sky-400 text-lg lg:text-xl mt-0.5 flex-shrink-0" />
                   <a
-                    href="mailto:contact@estimatingbuddies.com"
-                    className="text-white text-xs lg:text-sm hover:text-blue-500 transition-colors break-all sm:break-normal"
+                    href="mailto:info@estimatingbuddies.com"
+                    className="text-white text-xs lg:text-sm hover:text-sky-400 transition-colors break-all sm:break-normal"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
                     info@estimatingbuddies.com
@@ -151,18 +155,28 @@ const Footer = () => {
                 </div>
                 
                 {/* Phone */}
-                <div className="flex items-center gap-2 lg:gap-3">
-                  <FaPhone className="text-white text-xs lg:text-sm" />
-                  <span className="text-white text-xs lg:text-sm">+1 512-828-1066</span>
+                <div className="flex items-center gap-3 lg:gap-4">
+                  <FaPhone className="text-sky-400 text-lg lg:text-xl flex-shrink-0" />
+                  <a
+                    href="tel:+15128281066"
+                    className="text-white text-xs lg:text-sm hover:text-sky-400 transition-colors"
+                  >
+                    +1 512-828-1066
+                  </a>
                 </div>
                 
                 {/* Address */}
-                <div className="flex items-start gap-2 lg:gap-3">
-                  <FaLocationDot className="text-white mt-1 flex-shrink-0 text-xs lg:text-sm" />
-                  <div>
-                    <p className="text-white text-xs lg:text-sm">13555 South East 36th Street, Suite 100,</p>
-                    <p className="text-white text-xs lg:text-sm">Bellevue, WA 98006, USA</p>
-                  </div>
+                <div className="flex items-start gap-3 lg:gap-4">
+                  <FaLocationDot className="text-sky-400 text-lg lg:text-xl mt-0.5 flex-shrink-0" />
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=13555+South+East+36th+Street,+Suite+100,+Bellevue,+WA+98006,+USA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-xs lg:text-sm hover:text-sky-400 transition-colors"
+                  >
+                    <p>13555 South East 36th Street, Suite 100,</p>
+                    <p>Bellevue, WA 98006, USA</p>
+                  </a>
                 </div>
               </div>
             </div>
